@@ -3,15 +3,23 @@ import java.util.*; //arrayList,COllections,Random
 
 class Main {
   public static void main(String[] args) {
-    System.out.println("Hello world!");
+   Map<String,String> myMap =new HashMap<String,String>();
 
-    int[] nums = {123,52,12,53,65,1,2,68,53};
+   myMap.put("a","Hello");
+   myMap.put("b","There");
 
-int[] myArray = evenOdd(nums);
-for(int i : myArray){
-    System.out.println(i);
+   System.out.println("A is Present: "+myMap.containsKey("a"));
+   System.out.println("B is Present: "+myMap.containsKey("b"));
+   System.out.println("AB is Present: "+myMap.containsKey("ab"));
+
+   System.out.println("running mapAB");
+    MapAB(myMap);
+
+   System.out.println("A is Present: "+myMap.containsKey("a"));
+   System.out.println("B is Present: "+myMap.containsKey("b"));
+   System.out.println("AB is Present: "+myMap.containsKey("ab"));
+   System.out.println(myMap.get("ab"));
 }
-  }
 
 
   public static boolean sameFirstLast(int[] nums){
@@ -48,6 +56,30 @@ for(int i : myArray){
       myArray[i]=odds.remove(0);
     }
 
-  return myArray;
+     return myArray;
+  }
+
+  public static Map<String,String> MapAB(Map<String,String> map){
+      //check if map cotains a and b
+      // if both, add a new key, ab, that maps to a+b
+      if(map.containsKey("a") == true){
+        if(map.containsKey("b")==true){
+          String result = map.get("a") + map.get("b");
+          map.put("ab", result);
+        }
+      }
+    return map; 
+  }
+
+  public static Map<String,String> MapBully(Map<String,String> mymap{
+    // the b key takes whatever the a key's value is
+    //leaving the a key with ""
+    if(mymap.containsKey("a")){
+      String candy = mymap.get("a");
+      mymap.put("b",candy); //might cause error
+      
+
+    }
+
   }
 }
