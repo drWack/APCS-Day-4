@@ -5,20 +5,18 @@ class Main {
   public static void main(String[] args) {
    Map<String,String> myMap =new HashMap<String,String>();
 
-   myMap.put("a","Hello");
-   myMap.put("b","There");
+   myMap.put("a","Candy");
+   myMap.put("b","Dirty");
 
-   System.out.println("A is Present: "+myMap.containsKey("a"));
-   System.out.println("B is Present: "+myMap.containsKey("b"));
-   System.out.println("AB is Present: "+myMap.containsKey("ab"));
+   System.out.println("A is Present: "+myMap.containsKey("a") + " A holds: " + myMap.get("a"));
+  System.out.println("B is Present: "+myMap.containsKey("b") + " B holds: " + myMap.get("b"));
 
-   System.out.println("running mapAB");
-    MapAB(myMap);
+   System.out.println("running MapBully");
+    MapBully(myMap);
 
-   System.out.println("A is Present: "+myMap.containsKey("a"));
-   System.out.println("B is Present: "+myMap.containsKey("b"));
-   System.out.println("AB is Present: "+myMap.containsKey("ab"));
-   System.out.println(myMap.get("ab"));
+   System.out.println("A is Present: "+myMap.containsKey("a")+ " A holds: " + myMap.get("a"));
+   System.out.println("b is Present: "+myMap.containsKey("b")+ " b holds: " + myMap.get("b"));
+   
 }
 
 
@@ -71,15 +69,15 @@ class Main {
     return map; 
   }
 
-  public static Map<String,String> MapBully(Map<String,String> mymap{
+  public static Map<String,String> MapBully(Map<String,String> mymap){
     // the b key takes whatever the a key's value is
     //leaving the a key with ""
     if(mymap.containsKey("a")){
       String candy = mymap.get("a");
-      mymap.put("b",candy); //might cause error
-      
-
+      mymap.put("b",candy); 
+      mymap.remove("a");
+      mymap.put("a","");
     }
-
+    return mymap;
   }
 }
