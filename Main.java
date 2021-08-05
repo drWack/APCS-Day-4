@@ -3,20 +3,29 @@ import java.util.*; //arrayList,COllections,Random
 
 class Main {
   public static void main(String[] args) {
-   Map<String,String> myMap =new HashMap<String,String>();
+  
+  
+  String[] myStrings = {"public","static","void","main", "static","string","main"};
+  
+//hashtable <- faster if only one computer is accessing, permits nulls
+//HashMap <-default
+//linkedHashMap<-data is spread dynamically throgh memory
+//TreeMap<-Keys are sorted in a tree
 
-   myMap.put("a","Candy");
-   myMap.put("b","Dirty");
 
-   System.out.println("A is Present: "+myMap.containsKey("a") + " A holds: " + myMap.get("a"));
-  System.out.println("B is Present: "+myMap.containsKey("b") + " B holds: " + myMap.get("b"));
+  Map<String,Boolean> words = new HashMap<String,Boolean>();
+                            // the new keyword in java
 
-   System.out.println("running MapBully");
-    MapBully(myMap);
 
-   System.out.println("A is Present: "+myMap.containsKey("a")+ " A holds: " + myMap.get("a"));
-   System.out.println("b is Present: "+myMap.containsKey("b")+ " b holds: " + myMap.get("b"));
-   
+   words = wordMultiple(myStrings);
+
+  for(String s : myStrings){
+    System.out.println("("+s +","+ words.get(s)+")");
+  }
+
+
+
+  
 }
 
 
@@ -80,4 +89,24 @@ class Main {
     }
     return mymap;
   }
+
+  public static Map<String,Boolean> wordMultiple(String[] strings){
+      //take in string[], map each string as a key to a boolean
+      // if a string appears more than once, map to true
+      Map<String,Boolean> mymap = new HashMap<String,Boolean>();
+
+      for(String s : strings)
+      { //s "is a member of" strings
+        if(mymap.containsKey(s)){
+          mymap.put(s,true);
+        }
+        else{
+        mymap.put(s,false);  
+        }
+      }
+    return mymap;
+  }
 }
+
+// () <> [] {}
+// ^  ^   ^  ^ c
